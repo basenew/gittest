@@ -1,0 +1,10 @@
+menuconfig PKG_USING_RTC_PCF8563
+    bool "Use onboard rtc chip named pcf8563"
+    default n
+    select RT_USING_I2C
+    if PKG_USING_RTC_PCF8563
+        config RTC_USING_I2CBUS_NAME
+        string "config the i2c bus name"
+        default "i2c1"
+    endif
+

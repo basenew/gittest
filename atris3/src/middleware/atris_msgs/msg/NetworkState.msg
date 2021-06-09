@@ -1,0 +1,1 @@
+uint8 network_state

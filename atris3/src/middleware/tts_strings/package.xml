@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>tts_strings</name>
+  <version>1.0.0</version>
+  <description>The tts_strings package</description>
+  <maintainer email="pinkie.fu@ubtrobot.com">pinkie.fu</maintainer>
+  <author email="pinkie.fu@ubtrobot.com">pinkie.fu</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>log</build_depend>
+  <build_depend>imemory</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>log</run_depend>
+  <run_depend>imemory</run_depend>
+</package>

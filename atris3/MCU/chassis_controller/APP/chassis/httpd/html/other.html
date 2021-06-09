@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>HTTP Server</title>
+</head>
+<body>
+  <ul class="navbar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/power.html">Power</a></li>
+    <li><a href="/brake_and_sensor.html">刹车和传感器</a></li>
+    <li><a href="/set.html">设置</a></li>
+    <li><a href="/diagnosis.html">诊断</a></li>
+    <li><a href="/odom_calibration.html">里程计标定</a></li>
+    <li><a href="/upgrade.html">升级</a></li>
+    <li><a class="active" href="/other.html">其它</a></li>
+  </ul>
+
+  <div align="center">
+    <table border="1" cellpadding="10">
+      <tr>
+        <td width="120">八字停车</td>
+        <td width="120">
+          <div align="center">
+            <div class="onoffswitch" id="BA_flag_div" style="visibility: visible;">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="BA_flag_chk"
+                onclick="toggle_BA_flag()" /> <label class="onoffswitch-label" for="BA_flag_chk"> <span
+                class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="120">跌落检测</td>
+        <td width="120">
+          <div align="center">
+            <div class="onoffswitch" id="cliff_detect_flag_div" style="visibility: visible;">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="cliff_detect_flag_chk"
+                onclick="toggle_cliff_detect_flag()"> <label class="onoffswitch-label"
+                for="cliff_detect_flag_chk"> <span class="onoffswitch-inner"></span> <span
+                class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+            var ws;
+            var retries;
+            var set = false;
+
+            window.onload = function() {
+                console.log('wsOpen()');
+                wsOpen();
+
+            }
+
+            function deal(evt) {
+
+                if (set) {
+                    // Skip once
+                    set = false;
+                    return;
+                }
+
+                var stats = JSON.parse(evt.data);
+                console.log(stats);
+
+                for ( var k in stats) {
+                    if (k == 'name')
+                        continue;
+
+                    if (set) {
+                        set = false;
+                        continue;
+                    }
+
+                    if (k == 'BA_flag') {
+                        document.getElementById('BA_flag_chk').checked = 0 != stats[k];
+                    } else if (k == 'cliff_detect_flag') {
+                        document.getElementById('cliff_detect_flag_chk').checked = 0 != stats[k];
+                    }
+
+                } // for
+
+            }
+
+            function wsOpen() {
+                if (ws === undefined || ws.readyState != 0) {
+                    if (retries)
+                        setMsg("error", "WebSocket timeout, retrying..");
+                    else
+                        setMsg("info", "Opening WebSocket..");
+                    var uri = "/other"
+                    ws = new WebSocket("ws://" + location.host + uri);
+
+                    ws.onopen = function(evt) {
+                        retries = 0;
+                        setMsg("done", "WebSocket is open.");
+                    };
+                    ws.onerror = function(evt) {
+                        setMsg("error", "WebSocket error!");
+                    };
+                    ws.onmessage = function(evt) {
+                        deal(evt);
+                    };
+
+                    retries = 0;
+                }
+            }
+
+            function wsWrite(data) {
+                if (ws.readyState == 3 || retries++ > 5)
+                    wsOpen();
+                else if (ws.readyState == 1)
+                    ws.send(data);
+            }
+
+            function setMsg(cls, text) {
+                console.log(cls + text);
+            }
+
+            function toggle_BA_flag() {
+                set = true;
+                var val = document.getElementById('BA_flag_chk').checked;
+                wsWrite("other:BA_flag=" + (val ? "on" : "off"));
+            }
+
+            function toggle_cliff_detect_flag() {
+                set = true;
+                var val = document.getElementById('cliff_detect_flag_chk').checked;
+                wsWrite("other:cliff_detect_flag=" + (val ? "on" : "off"));
+            }
+        </script>
+
+  <div class="grid main">
+    <h1>About</h1>
+    <p>This server is based on httpd from LwIP.</p>
+    <p>To enable debugging compile with flags -DLWIP_DEBUG=1 -DHTTPD_DEBUG=LWIP_DBG_ON.</p>
+    <p>
+      For more info see <a href="http://www.nongnu.org/lwip/2_0_x/group__httpd.html">HTTP Server documentation</a>.
+    </p>
+  </div>
+</body>
+</html>

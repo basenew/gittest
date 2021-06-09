@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, user-scalable=no" /> 
+  <link rel="stylesheet" type="text/css" href="style.css" /> 
+  <title>UBT chassis</title> 
+ </head> 
+ <body> 
+  <ul class="navbar"> 
+		   <li><a href="/">Home</a></li> 
+		   <li><a href="/power.html">Power</a></li> 
+		   <li><a href="/brake_and_sensor.html">刹车和传感器</a></li> 
+		   <li><a href="/set.html">设置</a></li> 
+		   <li><a class="active" href="/diagnosis.html">诊断</a></li> 
+		   <li><a href="/odom_calibration.html">里程计标定</a></li> 
+		   <li><a href="/upgrade.html">升级</a></li> 
+		   <li><a href="/other.html">其它</a></li>
+  </ul> 
+  
+  <div class="grid main"> 
+  
+
+   
+   <div style="background-color:#0066CC;color:#fff;margin-top:30px;  "> 
+    <h3> <span>诊断</span> </h3> 
+   </div> 
+   <div align="center"> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="50"><div align="center"> 轴</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="70"><div align="center">转向控制</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="70"><div align="center">行进控制</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="100"><div align="center">当前角度值</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="100"><div align="center">当前速度值</div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="50">左前</td> 
+       <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('lfs<');">&lt;</button> 
+         <button  onclick="micro('lfs>');">&gt;</button> 
+        </div> </td> 
+        <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('lfm^');">∧</button> 
+         <button  onclick="micro('lfmv');">∨</button> 
+        </div> </td> 
+       <td width="100" id="uplfS"></td> 
+       <td width="100" id="uplfM"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="50">右前</td> 
+       <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('rfs<');">&lt;</button> 
+         <button  onclick="micro('rfs>');">&gt;</button> 
+        </div> </td> 
+        <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('rfm^');">∧</button> 
+         <button  onclick="micro('rfmv');">∨</button> 
+        </div> </td> 
+       <td width="100" id="uprfS"></td> 
+       <td width="100" id="uprfM"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="50">左后</td> 
+       <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('lts<');">&lt;</button> 
+         <button  onclick="micro('lts>');">&gt;</button> 
+        </div> </td> 
+        <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('ltm^');">∧</button> 
+         <button  onclick="micro('ltmv');">∨</button> 
+        </div> </td> 
+       <td width="100" id="upltS"></td> 
+        <td width="100" id="upltM"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="50">右后</td> 
+       <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('rts<');">&lt;</button> 
+         <button  onclick="micro('rts>');">&gt;</button> 
+        </div> </td> 
+        <td width="70"> 
+        <div align="center"> 
+         <button  onclick="micro('rtm^');">∧</button> 
+         <button  onclick="micro('rtmv');">∨</button> 
+        </div> </td> 
+       <td width="100" id="uprtS"></td> 
+       <td width="100" id="uprtM"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+   </div> 
+  </div> 
+  <script type="text/javascript"></script> 
+  <script>
+			var ws;
+			var retries;
+			var error_code = [
+					"normal",
+					"编码器ABZ报警",
+					"编码器UVW报警",
+					"位置超差",
+					"失速",
+					"ADC零点异常",
+					"过载",
+					"功率电源欠压",
+					"功率电源过压",
+					"过流",
+					"瞬时放电报警",
+					"平均放电报警",
+					"参数读写异常",
+					"输入端口重复定义",
+					"断线保护",
+					"温度报警",
+					"温度传感器连接异常",
+					"角度闭环异常"
+					];
+			window.onload = function() {
+				console.log('wsOpen()');
+				wsOpen();
+				
+			}		
+
+
+			function setMsg(cls, text) {
+					console.log(cls + text);
+
+					
+			}//
+			function replaceAll(str)  
+			{  
+				if(str.indexOf("code:")!=-1){
+					var arr = str.substring(str.length - 2);	
+					var err = parseInt(arr,16);
+					if(err < error_code.length)
+						return str + "(" + error_code[err] + ")";
+					else return str + "(" +"nor define error" + ")";
+				}
+				while(str.indexOf("^")!=-1){
+					str = str.replace("^","°");
+				}
+				return str;  
+			} 
+			function deal(evt) {
+					var stats = JSON.parse(evt.data);
+					console.log(stats);
+
+					document.getElementById('uplfS').innerHTML =  replaceAll(stats.lfS);
+					document.getElementById('uprfS').innerHTML =  replaceAll(stats.rfS);
+					document.getElementById('upltS').innerHTML =  replaceAll(stats.ltS);
+					document.getElementById('uprtS').innerHTML =  replaceAll(stats.rtS);
+					
+					document.getElementById('uplfM').innerHTML =  replaceAll(stats.lfM);
+					document.getElementById('uprfM').innerHTML =  replaceAll(stats.rfM);
+					document.getElementById('upltM').innerHTML =  replaceAll(stats.ltM);
+					document.getElementById('uprtM').innerHTML =  replaceAll(stats.rtM);
+					
+			}
+
+			function wsOpen() {
+				if (ws === undefined || ws.readyState != 0) {
+					if (retries)
+						setMsg("error", "WebSocket timeout, retrying..");
+					else
+						setMsg("info", "Opening WebSocket..");
+						var uri = "/dia"
+					ws = new WebSocket("ws://" + location.host + uri);
+
+					ws.onopen = function(evt) { retries = 0; setMsg("done", "WebSocket is open."); };
+					ws.onerror = function(evt) { setMsg("error", "WebSocket error!"); };
+					ws.onmessage = function(evt) { deal(evt);	};
+
+					retries = 0;
+				}
+			}
+			function wsWrite(data) {
+				if (ws.readyState == 3 || retries++ > 5)
+					wsOpen();
+				else if (ws.readyState == 1)
+					ws.send('dia:' + data);
+			}
+			function caliChassis(){
+				
+				document.getElementById('calibration').disabled = true;
+				wsWrite('steer');
+			}
+			
+			function micro(cmd){wsWrite(cmd);}
+
+
+		</script>   
+ </body>
+</html>

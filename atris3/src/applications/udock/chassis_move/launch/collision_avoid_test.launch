@@ -1,0 +1,15 @@
+<launch>
+
+    <node pkg="chassis_move" name="collision_detector_test_node" type="collision_detector_test_node" output="screen" >
+        <rosparam command="load" file="$(find chassis_move)/config/collision_detector.yaml" />
+    </node>
+
+    <node pkg="chassis_move" name="local_map_builder_node" type="local_map_builder_node"  respawn="true">
+        <rosparam command="load" file="$(find chassis_move)/config/local_map_builder.yaml" />
+    </node>
+    
+    <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization_collision_avoid_test" output="screen">
+        <rosparam command="load" file="$(find chassis_move)/config/grid_map_visual.yaml" />
+    </node>
+
+</launch>

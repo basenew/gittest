@@ -1,0 +1,22 @@
+[
+ {
+  "path": "/packages/iot/ota_downloader", 
+  "ver": "latest", 
+  "name": "OTA_DOWNLOADER"
+ }, 
+ {
+  "path": "/packages/system/fal", 
+  "ver": "v0.5.0", 
+  "name": "FAL"
+ }, 
+ {
+  "path": "/packages/peripherals/SignalLed", 
+  "ver": "latest", 
+  "name": "SIGNAL_LED"
+ }, 
+ {
+  "path": "/packages/peripherals/at24cxx", 
+  "ver": "latest", 
+  "name": "AT24CXX"
+ }
+]

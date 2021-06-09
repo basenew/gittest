@@ -1,0 +1,11 @@
+prefix=/home/hongzhou/workspace/avatar2/grpc/output
+exec_prefix=/home/hongzhou/workspace/avatar2/grpc/output
+libdir=/home/hongzhou/workspace/avatar2/grpc/output/lib
+includedir=/home/hongzhou/workspace/avatar2/grpc/output/include
+
+Name: Protocol Buffers
+Description: Google's Data Interchange Format
+Version: 3.13.0.0
+Libs: -L${libdir} -lprotobuf -lpthread
+Cflags: -I${includedir} -lpthread
+Conflicts: protobuf-lite

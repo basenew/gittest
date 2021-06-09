@@ -1,0 +1,84 @@
+{
+    "mapName": "atris",
+    "schemeName": "schemeName",
+    "schemes": [{
+        "schemeName": "巡逻路线",
+        "paths": [{
+            "path": "main_path",
+            "pathType": 0,
+            "obsPoints": [{
+                "name": "21",
+                "angle": -43,
+                "x": 615,
+                "y": 210,
+                "workTime": 600
+                "cameraHAngle": 90,
+                "cameraVAngle": 0,
+                "focusLength": 2,
+                "floodLight": false,
+                "flashingLight": false,
+                "alarmLight": false
+            },
+            {
+                "name": "c",
+                "angle": -13,
+                "x": 701,
+                "y": 142,
+                "workTime": 600
+                "cameraHAngle": 90,
+                "cameraVAngle": 0,
+                "focusLength": 2,
+                "floodLight": false,
+                "flashingLight": false,
+                "alarmLight": false
+            },
+            {
+                "name": "d",
+                "angle": 120,
+                "x": 724,
+                "y": 224,
+                "workTime": 600
+                "cameraHAngle": 90,
+                "cameraVAngle": 0,
+                "focusLength": 2,
+                "floodLight": false,
+                "flashingLight": false,
+                "alarmLight": false
+            },
+            {
+                "name": "e",
+                "angle": 144,
+                "x": 626,
+                "y": 307,
+                "workTime": 600
+                "cameraHAngle": 90,
+                "cameraVAngle": 0,
+                "focusLength": 2,
+                "floodLight": false,
+                "flashingLight": false,
+                "alarmLight": false
+            }
+            ]
+        }
+        ],
+        "switch": 0,
+        "returnPoint": "op_j",
+        "workTime": 60
+        "startTime": 66660,
+        "repeatType": 1,
+        "period": [1, 2, 3],
+        "cameraHAngle": 90,
+        "cameraVAngle": 0,
+        "focusLength": 2,
+        "floodLight": false,
+        "flashingLight": false,
+        "alarmLight": false,
+        "broadcastSwitch": false,
+        "broadcastPlayMode": 1,
+        "broadcastList": [
+            "宣传播报1",
+            "宣传播报2",
+            "宣传播报3"
+        ]
+    }]
+}

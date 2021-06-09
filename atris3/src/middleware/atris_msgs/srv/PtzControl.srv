@@ -1,0 +1,51 @@
+int32 PTZ_ROTATE_START=0
+int32 PTZ_ROTATE_PAUSE=1
+int32 PTZ_ROTATE_RESUME=2
+int32 PTZ_ROTATE_STOP=3
+int32 PTZ_MOVE=4
+int32 PTZ_MOVE_DEFAULT_POINT=5
+int32 PTZ_MOVE_CONTROL=6
+int32 PTZ_MOVE_UP=7
+int32 PTZ_MOVE_DOWN=8
+int32 PTZ_MOVE_LEFT=9
+int32 PTZ_MOVE_RIGHT=10
+int32 PTZ_CAPTURE=11
+int32 PTZ_FOCUS_CONTROL=12
+int32 PTZ_FOCUS_ADD=13
+int32 PTZ_FOCUS_DEC=14
+int32 PTZ_ZOOM_CONTROL=15
+int32 PTZ_ZOOM_ADD=16
+int32 PTZ_ZOOM_DEC=17
+int32 PTZ_RECORD_CONTROL=18
+int32 PTZ_RECORD_VIDEO_ON=19
+int32 PTZ_RECORD_VIDEO_OFF=20
+int32 PTZ_WIPER_CONTROL=21
+int32 PTZ_WIPER_ON=22
+int32 PTZ_WIPER_OFF=23
+int32 PTZ_RECORD_AUDIO_ON=24
+int32 PTZ_RECORD_AUDIO_OFF=25
+
+# params
+float32 h_angle
+float32 v_angle
+float32 zoom
+float32 foucs
+int32 default_point
+
+int32 move_op
+int32 focus_op
+int32 zoom_op
+int32 record_op
+int32 wiper_op
+
+int32 cmd
+
+---
+
+bool result
+string visible_light_url
+string infrared_url
+string imagebuf
+string visible_light_video_url
+string infrared_video_url
+string audio_url

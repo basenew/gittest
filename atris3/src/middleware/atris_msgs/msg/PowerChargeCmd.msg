@@ -1,0 +1,7 @@
+int32 START_LEAVE_PILE=0
+int32 CHASSIS_NOTIFY_CHARGE_STATUS=1
+int32 ROBOT_NOTIFY_IN_POSITION=2
+int32 charge_msg_type
+int32 charge_status
+int32 charge_result
+int32 charge_failed_reason

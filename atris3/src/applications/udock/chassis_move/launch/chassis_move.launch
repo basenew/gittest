@@ -1,0 +1,14 @@
+<launch>
+      
+  <node pkg="chassis_move" name="chassis_move_node" type="chassis_move_node" respawn="true">
+    <rosparam command="load" file="$(find chassis_move)/config/collision_detector.yaml" />
+  </node>
+
+  <node pkg="chassis_move" name="chassis_move_interface" type="chassis_move_interface" respawn="true">
+  </node>
+
+  <node pkg="chassis_move" name="local_map_builder_node" type="local_map_builder_node"  respawn="true">
+    <rosparam command="load" file="$(find chassis_move)/config/local_map_builder.yaml" />
+  </node>
+
+</launch>

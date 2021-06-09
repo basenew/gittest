@@ -1,0 +1,19 @@
+menu "applications Configuration"
+
+
+config PKG_USING_FOTA
+    bool "Use ota support"
+    default n
+
+config PKG_USING_LOG
+    bool "Use log support"
+    default n
+
+config PKG_USING_SW_CHECK
+    bool "Use switch check module"
+    select RT_USING_PIN
+    default n
+
+endmenu
+
+

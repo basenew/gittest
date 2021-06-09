@@ -1,0 +1,16 @@
+Atris1G-D-0.05.3.20210105194246
+ 
+atris-app
+============================
+build host:
+Ubuntu 18.04.5 LTS \n \l
+
+git branch:
+* develop
+git build user:
+pinkie.fu@ubtrobot.com
+git info:
+origin	git@10.10.1.34:atris/atris3.git (fetch)
+commit ba64fbfe7c6d7f661b7005eda4bbaa5a6d75ae56
+Author: pinkie <pinkie.fu@ubtrobot.com>
+Date:   Tue Jan 5 19:26:17 2021 +0800

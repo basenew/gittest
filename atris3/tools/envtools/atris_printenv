@@ -1,0 +1,15 @@
+#!/bin/bash
+file="/etc/atris_system_env.ini"
+if [ ! -f ${file} ]; then
+    echo "recovery_status=success" > ${file}
+fi
+
+item=$1
+
+if [ -z ${item} ]; then 
+    sed -n '1,$p' ${file}
+else
+    val=$(awk -F '=' '("'${item}'"==$1){print $2}' ${file}) 
+    echo -e "${val}"
+fi
+

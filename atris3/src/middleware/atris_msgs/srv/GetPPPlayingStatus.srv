@@ -1,0 +1,8 @@
+---
+int32 OWNER_PC=0
+int32 OWNER_NAV=1
+int32 status
+int64 pts
+int64 duration
+string name
+int32 owner

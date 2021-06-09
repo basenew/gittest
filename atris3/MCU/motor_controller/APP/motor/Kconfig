@@ -1,0 +1,10 @@
+menu "Motor Configuration"
+
+
+config PKG_USING_MOTOR
+    bool "Use MOTOR support"
+    default n
+
+endmenu
+
+

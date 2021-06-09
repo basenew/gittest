@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ "$1" == "all" ] ;then
+    sudo kill -9 $(ps -aux|grep "appAutoRunCfg.sh"|grep -v "grep"|awk -F ' ' '{print $2}')
+fi
+sudo killall -9 tinyrosconsole
+sudo killall -9 tinyrosdds
+sudo killall -9 devices
+sudo killall -9 navigation
+sudo killall -9 diagnostics
+sudo killall -9 udock
+sudo killall -9 shttpd
+sudo killall -9 mosquitto
+sudo killall -9 aisound
+sudo killall -9 swupgrade
+sudo killall -9 signaling
+sudo killall -9 navability
+sudo killall -9 visionability

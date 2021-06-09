@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="style.css">	
+		<title>UBT chassis</title>
+	</head>
+	<body>
+		<ul class="navbar">
+		   <li><a href="/">Home</a></li> 
+		   <li><a class="active" href="/power.html">Power</a></li> 
+		   <li><a href="/brake_and_sensor.html">刹车和传感器</a></li> 
+		   <li><a href="/set.html">设置</a></li> 
+		   <li><a href="/diagnosis.html">诊断</a></li> 
+		   <li><a href="/odom_calibration.html">里程计标定</a></li> 
+		   <li><a href="/upgrade.html">升级</a></li> 
+		   <li><a href="/other.html">其它</a></li>
+		</ul>
+		<div class="grid main">
+
+
+   <div style="background-color:#0066CC;color:#fff;margin-top:30px;  "> 
+    <h2> <span>马达电源控制</span> </h2> 
+   </div> 
+   <div align="center"> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">电源</div> </td> 
+	   <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="90"><div align="center">控制</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">电源</div> </td> 
+	   <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="90"><div align="center">控制</div> </td>
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">左前转向电源</td> 
+       <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="lf_steer_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="lf_steer_power" onclick="micro('lf_steer_power')" >
+					<label class="onoffswitch-label" for="lf_steer_power" >
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">左前行进电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="lf_direct_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="lf_direct_power" onclick="micro('lf_direct_power')">
+					<label class="onoffswitch-label" for="lf_direct_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">右前转向电源</td> 
+       <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="rf_steer_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rf_steer_power" onclick="micro('rf_steer_power')">
+					<label class="onoffswitch-label" for="rf_steer_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">右前行进电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="rf_direct_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rf_direct_power" onclick="micro('rf_direct_power')">
+					<label class="onoffswitch-label" for="rf_direct_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">左后转向电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="lt_steer_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="lt_steer_power" onclick="micro('lt_steer_power')">
+					<label class="onoffswitch-label" for="lt_steer_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">左后行进电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="lt_direct_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="lt_direct_power" onclick="micro('lt_direct_power')">
+					<label class="onoffswitch-label" for="lt_direct_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">右后转向电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="rt_steer_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rt_steer_power" onclick="micro('rt_steer_power')">
+					<label class="onoffswitch-label" for="rt_steer_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">右后行进电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="rt_direct_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rt_direct_power" onclick="micro('rt_direct_power')">
+					<label class="onoffswitch-label" for="rt_direct_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+   </div> 
+ 
+     <div style="background-color:#0066CC;color:#fff;margin-top:30px;  "> 
+    <h2> <span>模块电源控制</span> </h2> 
+   </div> 
+    <div align="center"> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center"> 模块</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="90"><div align="center">控制</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center"> 模块</div> </td> 	   
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="90"><div align="center">控制</div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">3.3V电源</td> 
+       <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="3_3_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="3_3_power" onclick="micro('3_3_power')">
+					<label class="onoffswitch-label" for="3_3_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">5.9V摇控器电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="5_9_remote_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="5_9_remote_power" onclick="micro('5_9_remote_power')">
+					<label class="onoffswitch-label" for="5_9_remote_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+ 
+     <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">12V预留电源1</td> 
+       <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="12_reserve_power1_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="12_reserve_power1" onclick="micro('12_reserve_power1')">
+					<label class="onoffswitch-label" for="12_reserve_power1">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">12V预留电源2</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="12_reserve_power2_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="12_reserve_power2" onclick="micro('12_reserve_power2')">
+					<label class="onoffswitch-label" for="12_reserve_power2">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+ 
+     <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">12V TDK电源</td> 
+       <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="12_tdk_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="12_tdk_power" onclick="micro('12_tdk_power')">
+					<label class="onoffswitch-label" for="12_tdk_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+		<td width="120">24V TDK电源</td> 
+        <td width="90"> 
+        <div align="center"> 
+				<div class="onoffswitch" id="24_tdk_power_div" style="visibility: hidden;">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="24_tdk_power" onclick="micro('24_tdk_power')">
+					<label class="onoffswitch-label" for="24_tdk_power">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+        </div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+ 
+   </div> 
+ 
+
+     <div style="background-color:#0066CC;color:#fff;margin-top:30px;  "> 
+    <h2> <span>模块电压反馈</span> </h2> 
+   </div> 
+    <div align="center"> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center"> 模块</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">电压</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center"> 模块</div> </td> 	   
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">电压</div> </td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">5V系统电源</td> 
+       <td width="120" id="5V_sys_view"></td>  
+		<td width="120">直充输入电压</td> 
+        <td width="120" id="m_charge_view"></td>  
+      </tr> 
+     </tbody>
+    </table> 
+ 
+     <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">12V系统电源</td> 
+       <td width="120" id="12v_sys_view"></td> 
+		<td width="120">回充输入电压</td> 
+        <td width="120" id="a_charge_view"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+ 
+     <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">24V系统电源</td> 
+       <td width="120" id="24v_sys_view"></td> 
+		<td width="120">电极片检测电压</td> 
+        <td width="120" id="pole_charge_view"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+ 
+   </div> 
+
+  <script type="text/javascript"></script> 
+  <script>
+			var ws;
+			var retries;
+			var set = false;
+			
+			window.onload = function() {
+				console.log('wsOpen()');
+				wsOpen();
+				
+			}		
+
+
+			function setMsg(cls, text) {
+					console.log(cls + text);
+
+					
+			}//
+			function replaceAll(str)  
+			{  
+				while(str.indexOf("^")!=-1){
+					str = str.replace("^","°");
+				}
+				return str;  
+			} 
+			function deal(evt) {
+					var stats = JSON.parse(evt.data);
+					console.log(stats);
+
+					for(var k in stats) {
+					    if( k == 'name')
+							continue;
+						if(set){
+							set = false;
+							continue;
+							}
+							if((stats[k] == 'e') || (stats[k] == 'd')){
+								if( document.getElementById(k + "_div").style.visibility == "hidden")
+									document.getElementById(k + "_div").style.visibility = "visible";
+								if(stats[k] == 'e')
+									document.getElementById(k).checked = true;
+									else document.getElementById(k).checked = false;
+							}else{
+								document.getElementById(k).innerHTML =  stats[k];
+							
+							}
+					}
+					
+					
+			}
+
+			function wsOpen() {
+				if (ws === undefined || ws.readyState != 0) {
+					if (retries)
+						setMsg("error", "WebSocket timeout, retrying..");
+					else
+						setMsg("info", "Opening WebSocket..");
+						var uri = "/pow"
+					ws = new WebSocket("ws://" + location.host + uri);
+
+					ws.onopen = function(evt) { retries = 0; setMsg("done", "WebSocket is open."); };
+					ws.onerror = function(evt) { setMsg("error", "WebSocket error!"); };
+					ws.onmessage = function(evt) { deal(evt);	};
+
+					retries = 0;
+				}
+			}
+			function wsWrite(data) {
+				if (ws.readyState == 3 || retries++ > 5)
+					wsOpen();
+				else if (ws.readyState == 1)
+					ws.send('pow:' + data);
+			}
+			function caliChassis(){
+				
+				document.getElementById('calibration').disabled = true;
+				wsWrite('steer');
+			}
+			
+			function micro(sw){
+				set = true;
+				if (document.getElementById(sw).checked)
+					wsWrite(sw + '-e');
+				else
+					wsWrite(sw + '-d');
+			}
+
+		</script>   
+ </body>
+  
+</html>

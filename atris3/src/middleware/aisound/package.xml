@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <name>aisoundlib</name>
+  <version>1.0.0</version>
+  <description>aisoundlib sdk</description>
+
+  <maintainer email="pinkie.fu@ubtrobot.com">pinkie.fu</maintainer>
+  <author email="pinkie.fu@ubtrobot.com">pinkie.fu</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

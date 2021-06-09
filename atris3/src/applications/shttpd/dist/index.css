@@ -1,0 +1,96 @@
+a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var{
+  padding: 3;
+  margin: 0;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+textarea{
+  width:490px; 
+  height: 90px;
+}
+ul{
+  list-style: none;
+}
+fieldset{
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: left;
+  width: 500px;
+}
+dd{
+  font-size:13px;
+  display: none;
+  padding: 5;
+}
+h3{
+  font-size:16px;
+}
+#tab{
+    text-align:center;
+    width: 948px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 2px #ddd;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+#tab-header{
+    background-color: #F7F7F7;
+    height: 33px;
+    text-align: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+#tab-header ul{
+    border-top: 1px solid #dddddd;
+    width: 950px;
+    position: absolute;
+    left: -1px;
+    padding: 0;
+    margin: 0;
+}
+#tab-header ul li{
+    float: left;
+    width: 98px;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 1px;
+    border-bottom: 1px solid #dddddd;
+    padding: 0;
+    margin: 0;
+}
+#tab-header ul li.selected{
+    background-color: white;
+    font-weight: bolder;
+    border-bottom: 0;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    padding: 0;
+    margin: 0;
+}
+#tab-header ul li:hover{
+    color: orangered;
+    padding: 0;
+    margin: 0;
+}
+#tab-content .dom{
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+#tab-content .dom ul li{
+    float: left;
+    /*background-color: red;*/
+    margin: 15px 10px;
+    padding: 0;
+    margin: 0;
+}
+#tab-content .dom ul li a:hover{
+    color: orange;
+    padding: 0;
+    margin: 0;
+}

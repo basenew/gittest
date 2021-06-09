@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>navability</name>
+  <version>1.0.0</version>
+  <description>The navability application</description>
+  <maintainer email="pinkie.fu@ubtrobot.com">pinkie.fu</maintainer>
+  <author email="pinkie.fu@ubtrobot.com">pinkie.fu</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>atris_msgs</build_depend>
+  <build_depend>jsoncpp</build_depend>
+  <build_depend>tinyros</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>atris_msgs</run_depend>
+  <run_depend>jsoncpp</run_depend>
+  <run_depend>tinyros</run_depend>
+</package>

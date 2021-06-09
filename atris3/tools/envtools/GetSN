@@ -1,0 +1,3 @@
+#!/bin/bash
+atris_printenv sn
+

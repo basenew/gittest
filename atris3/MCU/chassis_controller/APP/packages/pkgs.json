@@ -1,0 +1,42 @@
+[
+ {
+  "path": "/packages/iot/webclient", 
+  "ver": "v2.1.2", 
+  "name": "WEBCLIENT"
+ }, 
+ {
+  "path": "/packages/iot/netutils", 
+  "ver": "latest", 
+  "name": "NETUTILS"
+ }, 
+ {
+  "path": "/packages/iot/ota_downloader", 
+  "ver": "latest", 
+  "name": "OTA_DOWNLOADER"
+ }, 
+ {
+  "path": "/packages/tools/EasyFlash", 
+  "ver": "v4.1.0", 
+  "name": "EASYFLASH"
+ }, 
+ {
+  "path": "/packages/system/fal", 
+  "ver": "v0.5.0", 
+  "name": "FAL"
+ }, 
+ {
+  "path": "/packages/system/littlefs", 
+  "ver": "v2.1.4", 
+  "name": "LITTLEFS"
+ }, 
+ {
+  "path": "/packages/peripherals/at24cxx", 
+  "ver": "latest", 
+  "name": "AT24CXX"
+ }, 
+ {
+  "path": "/packages/peripherals/quick_led", 
+  "ver": "latest", 
+  "name": "QLED"
+ }
+]

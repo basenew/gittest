@@ -1,0 +1,5 @@
+int32 NAV_STOP=0
+int32 NAV_POWER_OFF=1
+int32 NAV_RESET=2
+int32 NAV_RESET_CLEAR=3
+int32 reset

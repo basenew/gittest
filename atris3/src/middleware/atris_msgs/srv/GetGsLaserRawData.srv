@@ -1,0 +1,12 @@
+---
+string frame_id
+int32 stamp
+float32 angle_min
+float32 angle_max
+float32 angle_increment
+float32 range_min
+float32 range_max
+uint32 range_size
+uint32 intens_size
+float32[2048] laser_range
+float32[2048] intensities

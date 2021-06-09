@@ -1,0 +1,11 @@
+float32 start_point_x 
+float32 start_point_y
+float32 end_point_x 
+float32 end_point_y
+---
+float32 temperature_max
+float32 temperature_min
+float32 temperature_ave
+float32 temperature_diff
+float32 temperature_min_locate
+float32 temperature_max_locate

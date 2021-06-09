@@ -1,0 +1,10 @@
+int32 PPPLAYER_PLAY=0
+int32 PPPLAYER_PAUSE=1
+int32 PPPLAYER_RESUME=2
+int32 PPPLAYER_STOP=3
+string play_list_json
+bool play_loop
+int32 play_mode
+int32 play_control
+---
+bool result

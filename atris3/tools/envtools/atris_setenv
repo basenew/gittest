@@ -1,0 +1,20 @@
+#!/bin/bash
+file="/etc/atris_system_env.ini"
+if [ ! -f ${file} ]; then
+    echo "recovery_status=success" > ${file}
+fi
+
+item=$1;val=$2
+if [ -z ${item} ]; then 
+    echo -e "Invalid item"
+    exit 1
+fi
+
+result=`sed -n '1,$p' ${file}|grep "${item}="|grep -v grep`
+if [ -z ${result} ]; then
+    echo "${item}=${val}" >> ${file}
+else
+    sed -i "s/\(${item}=\).*/\1${val}/g" ${file}
+fi
+sync
+

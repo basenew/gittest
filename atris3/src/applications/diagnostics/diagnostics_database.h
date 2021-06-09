@@ -1,0 +1,5 @@
+#ifndef DIAGNOSTICS_DATABASE_H__
+#define DIAGNOSTICS_DATABASE_H__
+
+
+#endif

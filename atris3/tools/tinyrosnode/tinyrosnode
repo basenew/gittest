@@ -1,0 +1,2 @@
+#!/bin/bash
+busybox ps|grep /home/atris/atris_app/lib|grep -v grep|grep -v tinyrosnode

@@ -1,0 +1,10 @@
+menu "CHASSIS Configuration"
+
+
+config PKG_USING_CHASSIS
+    bool "Use CHASSIS support"
+    default n
+
+endmenu
+
+

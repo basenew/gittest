@@ -1,0 +1,12 @@
+---
+int32 PTZ_NOT_LOGIN_STATUS = 0
+int32 PTZ_IDLE_STATUS = 1
+int32 PTZ_ROTATE_STATUS = 2
+int32 status
+float32 pan_angle
+float32 tilt_angle
+float32 zoom_value
+int32 focus_value
+int32 light_status
+int32 wiper_status
+int32 error

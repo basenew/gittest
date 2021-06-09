@@ -1,0 +1,10 @@
+from building import *
+
+cwd = GetCurrentDir()
+path = [cwd+'/inc']
+src  = Glob('src/*.c')
+ 
+group = DefineGroup('STM32_StdPeriph', src, depend = [''], CPPPATH = path)
+
+Return('group')
+

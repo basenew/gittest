@@ -1,0 +1,9 @@
+#!/bin/bash
+val=$1
+if [ -z ${val} ]; then 
+    echo -e "Invalid SN"
+    exit 1
+fi
+
+atris_setenv sn ${val}
+

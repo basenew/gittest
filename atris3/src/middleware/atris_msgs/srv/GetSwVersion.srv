@@ -1,0 +1,10 @@
+---
+string chassis_sw_ver
+int32 chassis_core_hw_ver
+int32 chassis_base_hw_ver
+string monitor_sw_ver
+int32 monitor_core_hw_ver
+int32 monitor_base_hw_ver
+string bms_hw_ver
+string bms_sw_ver
+string imx_version

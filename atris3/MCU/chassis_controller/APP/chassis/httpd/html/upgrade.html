@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="style.css">	
+		<title>UBT chassis</title>
+	</head>
+	<body>
+		<ul class="navbar">
+		   <li><a href="/">Home</a></li> 
+		   <li><a href="/power.html">Power</a></li> 
+		   <li><a href="/brake_and_sensor.html">刹车和传感器</a></li> 
+		   <li><a href="/set.html">设置</a></li> 
+		   <li><a href="/diagnosis.html">诊断</a></li> 
+		   <li><a href="/odom_calibration.html">里程计标定</a></li> 
+		   <li><a class="active" href="/upgrade.html">升级</a></li> 
+		   <li><a href="/other.html">其它</a></li>
+		</ul>
+ <div style="background-color:#0066CC;color:#fff;margin-top:30px;  "> 
+    <h2> <span>马达驱动器升级</span> </h2> 
+   </div> 
+    <div align="center"> 
+		<h3> 
+			<button id="id_inc" onclick="micro('inc');">增量升级</button> 
+
+			<button id="id_force" onclick="micro('force');">强制升级</button> 
+		</h3> 
+   </div> 
+   
+   <div align="center"> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">驱动器</div> </td> 
+	   <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="100"><div align="center">升级状态</div> </td> 
+       <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="120"><div align="center">驱动器</div> </td> 
+	   <td style="background-color:#0066CC;color:#fff;margin-top:30px;  " width="100"><div align="center">升级状态</div> </td>
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">左前转向<button onclick="micro('leftFront_S');">升级</button> </td> 
+       <td width="100" id="leftFront_S"></td> 
+		<td width="120">左前行进<button onclick="micro('leftFront_D');">升级</button></td> 
+        <td width="100" id="leftFront_D"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">右前转向<button onclick="micro('rightFront_S');">升级</button></td> 
+       <td width="100" id="rightFront_S"></td> 
+		<td width="120">右前行进<button onclick="micro('rightFront_D');">升级</button></td> 
+       <td width="100" id="rightFront_D"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">左后转向<button onclick="micro('leftRear_S');">升级</button></td> 
+       <td width="100" id="leftRear_S"></td> 
+		<td width="120">左后行进<button onclick="micro('leftRear_D');">升级</button></td> 
+        <td width="100" id="leftRear_D"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+    <table border="1" cellpadding="10"> 
+     <tbody>
+      <tr> 
+       <td width="120">右后转向<button onclick="micro('rightRear_S');">升级</button></td> 
+       <td width="100" id="rightRear_S"></td> 
+		<td width="120">右后行进<button onclick="micro('rightRear_D');">升级</button></td> 
+        <td width="100" id="rightRear_D"></td> 
+      </tr> 
+     </tbody>
+    </table> 
+   </div> 
+	 <script type="text/javascript"></script> 
+  <script>
+			var ws;
+			var retries;
+	
+			window.onload = function() {
+				console.log('wsOpen()');
+				wsOpen();
+				
+			}		
+
+
+			function setMsg(cls, text) {
+					console.log(cls + text);
+
+					
+			}
+	
+			function deal(evt) {
+					var stats = JSON.parse(evt.data);
+					console.log(stats);
+
+					for(var k in stats) {
+					    if( k == 'name')
+							continue;
+		
+						document.getElementById(k).innerHTML =  stats[k];
+							
+					}
+					
+			}
+
+			function wsOpen() {
+				if (ws === undefined || ws.readyState != 0) {
+					if (retries)
+						setMsg("error", "WebSocket timeout, retrying..");
+					else
+						setMsg("info", "Opening WebSocket..");
+						var uri = "/upg"
+					ws = new WebSocket("ws://" + location.host + uri);
+
+					ws.onopen = function(evt) { retries = 0; setMsg("done", "WebSocket is open."); };
+					ws.onerror = function(evt) { setMsg("error", "WebSocket error!"); };
+					ws.onmessage = function(evt) { deal(evt);	};
+
+					retries = 0;
+				}
+			}
+			function wsWrite(data) {
+				if (ws.readyState == 3 || retries++ > 5)
+					wsOpen();
+				else if (ws.readyState == 1)
+					ws.send('upg:' + data);
+			}
+
+			
+			function micro(cmd){wsWrite(cmd);}
+
+
+		</script>   
+	</body>
+</html>

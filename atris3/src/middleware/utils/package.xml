@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>utils</name>
+  <version>1.0.0</version>
+  <description>The utils package</description>
+  <maintainer email="pinkie.fu@ubtrobot.com">pinkie.fu</maintainer>
+  <author email="pinkie.fu@ubtrobot.com">pinkie.fu</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>log</build_depend>
+  <build_depend>config</build_depend>
+  <build_depend>md5</build_depend>
+  <build_depend>database</build_depend>
+  <build_depend>imemory</build_depend>
+  <build_depend>rtc</build_depend>
+  <build_depend>jsoncpp</build_depend>
+  <build_depend>atris_msgs</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>log</run_depend>
+  <run_depend>config</run_depend>
+  <run_depend>md5</run_depend>
+  <run_depend>database</run_depend>
+  <run_depend>imemory</run_depend>
+  <run_depend>rtc</run_depend>
+  <run_depend>jsoncpp</run_depend>
+  <run_depend>atris_msgs</run_depend>
+</package>

@@ -1,0 +1,8 @@
+string id
+string path_name
+int32 mode
+string name
+float64 x
+float64 y
+float64 yaw
+

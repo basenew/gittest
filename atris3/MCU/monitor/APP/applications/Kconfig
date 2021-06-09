@@ -1,0 +1,31 @@
+menu "applications Configuration"
+
+
+config PKG_USING_FOTA
+    bool "Use ota support"
+    default n
+
+config PKG_USING_LOG
+    bool "Use log support"
+    default n
+
+config PKG_USING_SW_CHECK
+    bool "Use switch check module"
+    select RT_USING_PIN
+    default n
+	
+config PKG_USING_HSUCHM_01A
+    bool "Use huschm_01 moudles"
+    default n
+    if PKG_USING_HSUCHM_01A
+    config PKG_USING_HSUCHM_01A_TEMP
+		bool "Use huschm_01 temperature"
+        default n
+    config PKG_USING_HSUCHM_01A_HUMI
+		bool "Use huschm_01 humidity"
+        default n
+    endif
+
+endmenu
+
+

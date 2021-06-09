@@ -1,0 +1,13 @@
+prefix=/home/hongzhou/workspace/avatar2/grpc/output
+exec_prefix=/home/hongzhou/workspace/avatar2/grpc/output
+libdir=/home/hongzhou/workspace/avatar2/grpc/output/lib
+sharedlibdir=/home/hongzhou/workspace/avatar2/grpc/output/lib
+includedir=/home/hongzhou/workspace/avatar2/grpc/output/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

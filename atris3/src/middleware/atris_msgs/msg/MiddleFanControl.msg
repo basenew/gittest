@@ -1,0 +1,8 @@
+int32 MIDDLE_FAN_OFF=0
+int32 MIDDLE_FAN_ON=1
+int32 ATRIS_TYPE_M_POLICE=0
+int32 ATRIS_TYPE_OTHER=1
+int32 atris_type
+int32 on_off
+int32 level
+

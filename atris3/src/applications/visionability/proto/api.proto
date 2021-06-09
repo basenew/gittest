@@ -1,0 +1,112 @@
+syntax = "proto3";
+package vrssg;
+
+import "google/protobuf/empty.proto";
+
+service VisionRecognitionService {
+  // Get supported recognize model list.
+  rpc ListMeters (google.protobuf.Empty) returns (Meters);
+  // Recognize by input.
+  rpc Recognize (Input) returns (Result);
+}
+
+message Meters {
+  repeated Meter meter = 1;
+}
+
+message Meter {
+  // Model name.
+  string model = 1;
+  // Binary image data for template.
+  bytes image = 2;
+  // Comments for this model.
+  string comments = 3;
+}
+
+message Input {
+  // Model for use to recognize.
+  string model = 1;
+  // Input binary image data to recognize.
+  bytes image = 2;
+}
+
+enum ErrorCode {
+  // Success result
+  ERROR_SUCCESS = 0;
+  // Failed to process
+  ERROR_FAILED = 1;
+  // Already in recognizing which SDK can't running two different recognize
+  // instance in same time for current
+  ERROR_ALREADY_IN_RECOGNIZING = 2;
+  // Invalid input image to recognize
+  ERROR_INVALID_INPUT_IMAGE_DATA = 3;
+  // Invalid model name for recognize
+  ERROR_INVALID_INPUT_MODEL_NAME = 4;
+  // Target not found
+  ERROR_TARGET_NOT_FOUND = 5;
+}
+
+enum SwitchStatus {
+  SWITCH_STATUS_UNKOWN = 0;
+  SWITCH_STATUS_ON = 1;
+  SWITCH_STATUS_OFF = 2;
+}
+
+message Rectangle {
+  int32 left = 1;
+  int32 top = 2;
+  int32 width = 3;
+  int32 height = 4;
+}
+
+message SwitchResult {
+  string id = 1;
+  Rectangle rect = 2;
+  SwitchStatus status = 3;
+  float score = 4;
+}
+
+message SwitchResults {
+  repeated SwitchResult results = 1;
+}
+message Point{
+    int32 x = 1;
+    int32 y = 2;
+}
+message MeterValue{
+    float value = 1;
+    int32 id = 2;
+    /// Take effect while category 0
+    Point pos = 3;   
+}
+
+message MeterResult {
+  string id = 1;
+  Rectangle rect = 2;
+  /// -1:falied; else 
+  repeated MeterValue value = 3;
+  float score = 4;
+  /// meterType:0 finger pos exist, 1 is OCR pos empty
+  int32 category = 5;                                   
+}
+
+message MeterResults {
+  repeated MeterResult results = 1;
+}
+
+message Result {
+  int32 type = 1;
+  // Result for recognize.
+  // If using model for 'DaoZha' 'OpenClose' and so on, the result is one
+  // of this: 'CLOSE' 'OPEN' 'FAILED'.
+  // If using model for 'YN-150-60MPA', 'DELIXI42L6-450V', the result is the
+  // concrete numerations.
+
+  oneof shot {
+    SwitchResults switch_results = 2;
+    MeterResults meter_results = 3;
+  }
+
+  // Specific the recognize result detail
+  ErrorCode code = 4;
+}

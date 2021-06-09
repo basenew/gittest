@@ -1,0 +1,7 @@
+<launch>
+      
+  <node pkg="scan_trans" name="scan_trans_node" type="scan_trans_node" respawn="true">
+   <rosparam command="load" file="$(find scan_trans)/config/udock_scan_trans.yaml" />
+  </node>
+
+</launch>

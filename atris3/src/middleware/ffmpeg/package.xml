@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <name>ffmpeg</name>
+  <version>4.2.1</version>
+  <description>ffmpeg-4.2.1</description>
+
+  <maintainer email="kevin.chen@ubtrobot.com">kevin.chen</maintainer>
+  <author email="kevin.chen@ubtrobot.com">kevin.chen</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

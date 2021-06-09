@@ -1,0 +1,13 @@
+#part1: the goal message, to be sent by the client
+
+# 1:linear 2:angular
+uint32  type 
+float32 distance
+float32 velocity
+---
+#part2: the result message, to be sent by the server upon completion
+bool finish
+string fail_reason
+---
+#part3: the feedback message, to be sent by server during execution
+uint32 complete_percent

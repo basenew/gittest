@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<package>
+  <name>devices</name>
+  <version>1.0.0</version>
+  <description>The devices application</description>
+  <maintainer email="pinkie.fu@ubtrobot.com">pinkie.fu</maintainer>
+  <author email="pinkie.fu@ubtrobot.com">pinkie.fu</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>log</build_depend>
+  <build_depend>aisoundlib</build_depend>
+  <build_depend>atris_msgs</build_depend>
+  <build_depend>libmediaplayer</build_depend>
+  <build_depend>tts_strings</build_depend>
+  <build_depend>sound</build_depend>
+  <build_depend>utils</build_depend>
+  <build_depend>database</build_depend>
+  <build_depend>imemory</build_depend>
+  <build_depend>config</build_depend>
+  <build_depend>md5</build_depend>
+  <build_depend>rtc</build_depend>
+  <build_depend>jsoncpp</build_depend>
+  <build_depend>eeprom</build_depend>
+  <build_depend>can</build_depend>
+  <build_depend>task_manager</build_depend>
+  <build_depend>transferfile</build_depend>
+  <build_depend>platform</build_depend>
+  <build_depend>tinyros</build_depend>
+  <build_depend>libxml</build_depend>
+  <build_depend>cpp-base64</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>log</run_depend>
+  <run_depend>aisoundlib</run_depend>
+  <run_depend>atris_msgs</run_depend>
+  <run_depend>libmediaplayer</run_depend>
+  <run_depend>tts_strings</run_depend>
+  <run_depend>sound</run_depend>
+  <run_depend>utils</run_depend>
+  <run_depend>database</run_depend>
+  <run_depend>imemory</run_depend>
+  <run_depend>config</run_depend>
+  <run_depend>md5</run_depend>
+  <run_depend>rtc</run_depend>
+  <run_depend>jsoncpp</run_depend>
+  <run_depend>eeprom</run_depend>
+  <run_depend>can</run_depend>
+  <run_depend>task_manager</run_depend>
+  <run_depend>transferfile</run_depend>
+  <run_depend>platform</run_depend>
+  <run_depend>tinyros</run_depend>
+  <run_depend>libxml</run_depend>
+  <run_depend>cpp-base64</run_depend>
+</package>

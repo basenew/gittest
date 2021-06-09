@@ -1,0 +1,5 @@
+menuconfig PKG_USING_SW_CHECK
+    bool "Use switch check module"
+    default n
+    select RT_USING_PIN
+    

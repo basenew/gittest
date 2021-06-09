@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="u_dock" name="u_dock_node" type="u_dock_node" respawn="true">
+  </node>
+
+</launch>
+
+

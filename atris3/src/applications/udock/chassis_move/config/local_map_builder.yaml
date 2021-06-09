@@ -1,0 +1,6 @@
+map_length: 3.0
+map_width: 1.5
+map_resolution: 0.03 #修改这里之后同步修改 collision_detector.yaml中的map_resolution
+map_update_period: 0.08 # s
+map_topic_name: /collision_detect_local_map
+map_frame_id: base_link

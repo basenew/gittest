@@ -1,0 +1,7 @@
+angle_min: -3.1415926
+angle_max: 3.1415926
+angle_increment: 0.007
+scan_time: 0.0
+range_min: 0.1
+range_max: 5.0
+frame_id: laser

@@ -1,0 +1,6 @@
+<launch>
+      
+  <node pkg="chassis_move" name="chassis_move_node" type="chassis_move_node" output="screen" respawn="true">
+  </node>
+
+</launch>

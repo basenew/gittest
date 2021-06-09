@@ -1,0 +1,10 @@
+map_topic_name: /collision_detect_local_map
+map_resolution: 0.03 #这里的resolution应与local_map_builder.yaml中的resolution保持一致
+
+
+local_map_not_update_tolerance_duaration: 0.2 # ,容许地图不更新时间
+
+map_out_put_topic_name: /detect_area_collision_map #在local_map的基础上，加上一层，显示检测区域
+
+speed_level: [0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 1.5] #速度等级
+deceleration_dis_level: [0.08, 0.15, 0.3, 0.4, 0.55, 0.7, 1.7] #各速度等级对应的减速距离

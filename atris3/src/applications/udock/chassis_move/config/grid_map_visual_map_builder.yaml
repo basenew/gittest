@@ -1,0 +1,44 @@
+grid_map_topic: /collision_detect_local_map
+
+grid_map_visualizations:
+  - name: occupancy_grid_bottom_laser
+    type: occupancy_grid
+    params:
+      layer: bottom_laser
+      data_min: 0
+      data_max: 20     
+
+  - name: occupancy_grid_top_laser
+    type: occupancy_grid
+    params:
+      layer: top_laser
+      data_min: 0
+      data_max: 20    
+
+  - name: detect_area
+    type: occupancy_grid
+    params:
+      layer: detect_area
+      data_min: 0
+      data_max: 20 
+
+  - name: all_sensor
+    type: occupancy_grid
+    params:
+      layer: all_sensor
+      data_min: 0
+      data_max: 20 
+
+  - name: ultrasonic
+    type: occupancy_grid
+    params:
+      layer: ultrasonic
+      data_min: 0
+      data_max: 20 
+
+  - name: waist_rgbd
+    type: occupancy_grid
+    params:
+      layer: waist_rgbd
+      data_min: 0
+      data_max: 20 

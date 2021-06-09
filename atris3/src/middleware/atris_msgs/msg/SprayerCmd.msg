@@ -1,0 +1,2 @@
+int32 devices
+int32 switch_on
